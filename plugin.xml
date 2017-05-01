@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin
+    xmlns="http://www.phonegap.com/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="cordova-plugin-bluebamboo"
+    version="1.0.0">
+
+    <name>Blue Bamboo</name>
+    <description>Blue Bamboo plugin for Cordova</description>
+    <license>© 2017 TOKOM, all rights reserved</license>
+    <keywords>blue bamboo, printer, p200</keywords>
+
+    <repo>https://bitbucket.org/tokom/cordova-plugin-bluebamboo</repo>
+    <issue>https://bitbucket.org/tokom/cordova-plugin-bluebamboo/issues</issue>
+
+    <js-module src="www/bluebamboo.js" name="bluebamboo">
+        <clobbers target="bluebamboo" />
+    </js-module>
+
+    <platform name="ios">
+
+        <config-file target="config.xml" parent="/widget">
+            <feature name="BlueBamboo">
+                <param name="ios-package" value="BlueBambooPlugin" onload="true"/>
+            </feature>
+        </config-file>
+
+        <config-file target="*-Info.plist" parent="UISupportedExternalAccessoryProtocols">
+            <array>
+                <string>com.bluebamboo.p200</string>
+            </array>
+        </config-file>
+
+        <header-file src="src/ios/BlueBambooPlugin.h" target-dir="BlueBambooPlugin" />
+        <source-file src="src/ios/BlueBambooPlugin.m" target-dir="BlueBambooPlugin" />
+
+        <!-- frameworks -->
+        <framework src="ExternalAccessory.framework" />
+
+        <header-file src="src/ios/Utility/BmpUtil.h" />
+        <source-file src="src/ios/Utility/BmpUtil.m" />
+        <header-file src="src/ios/Utility/ByteBuffer.h" />
+        <source-file src="src/ios/Utility/ByteBuffer.m" />
+        <header-file src="src/ios/Utility/EmvResult.h" />
+        <source-file src="src/ios/Utility/EmvResult.m" />
+        <header-file src="src/ios/Utility/Global.h" />
+        <source-file src="src/ios/Utility/Global.m" />
+        <header-file src="src/ios/Utility/ImageHelper.h" />
+        <source-file src="src/ios/Utility/ImageHelper.m" />
+        <header-file src="src/ios/Utility/P200Commands.h" />
+        <source-file src="src/ios/Utility/P200Commands.m" />
+        <header-file src="src/ios/Utility/P200DemoSessionController.h" />
+        <source-file src="src/ios/Utility/P200DemoSessionController.m" />
+        <header-file src="src/ios/Utility/StringUtil.h" />
+        <source-file src="src/ios/Utility/StringUtil.m" />
+        <!--
+        <framework src="src/ios/libP200Ios.a" custom="true" />
+        
+        <header-file src="src/ios/include" />
+        <header-file src="src/ios/EmvResult.h" />
+        <source-file src="src/ios/EmvResult.m" />
+        -->
+
+        <!--
+        <header-file src="src/ios/include/P200Ios/ControlPrint.h" />
+        <header-file src="src/ios/include/P200Ios/Display.h" />
+        <header-file src="src/ios/include/P200Ios/EMVs.h" />
+        <header-file src="src/ios/include/P200Ios/ICC.h" />
+        <header-file src="src/ios/include/P200Ios/ICCResponse.h" />
+        <header-file src="src/ios/include/P200Ios/MSR.h" />
+        <header-file src="src/ios/include/P200Ios/MSRRecord.h" />
+        <header-file src="src/ios/include/P200Ios/P200Ios.h" />
+        <header-file src="src/ios/include/P200Ios/P200Session.h" />
+        <header-file src="src/ios/include/P200Ios/PICC.h" />
+        <header-file src="src/ios/include/P200Ios/PICCType.h" />
+        <header-file src="src/ios/include/P200Ios/PINcaptureResponse.h" />
+        <header-file src="src/ios/include/P200Ios/PINpad.h" />
+        <header-file src="src/ios/include/P200Ios/PrinterInfo.h" />
+        <header-file src="src/ios/include/P200Ios/PrinterUtil.h" />
+        <header-file src="src/ios/include/P200Ios/PrintImage.h" />
+        -->
+    </platform>
+
+</plugin>
